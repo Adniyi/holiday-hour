@@ -1,3 +1,7 @@
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from datetime import datetime
 import resend
 from config import settings
 
@@ -96,7 +100,113 @@ class EmailService:
             print(f"Failed to send receipt email: {str(e)}")
             raise
 
+class SMTPEmailService:
+    def __init__(self):
+        self.from_email = settings.from_email
+        self.smtp_host = settings.smtp_host
+        self.smtp_port = settings.smtp_port
+        self.smtp_user = settings.smtp_user
+        self.smtp_password = settings.smtp_password
 
-from datetime import datetime
+    def send_magic_link(self, to_email: str, magic_link: str, business_name: str):
+        try:
+            msg = MIMEMultipart()
+            msg['From'] = self.from_email
+            msg['To'] = to_email
+            msg['Subject'] = f"Edit Your {business_name} Holiday Hours - HolidyHours"
 
-email_service = EmailService()
+            html = f"""
+            <html>
+            <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+                <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+                    <h1 style="color: #2563eb;">HolidyHours</h1>
+                    <h2>Edit Your Holiday Hours</h2>
+                    <p>Hello,</p>
+                    <p>Click the link below to edit your holiday hours page for <strong>{business_name}</strong>:</p>
+                    <p style="margin: 30px 0;">
+                        <a href="{magic_link}"
+                           style="background-color: #2563eb; color: white; padding: 12px 24px;
+                                  text-decoration: none; border-radius: 6px; display: inline-block;">
+                            Edit My Page
+                        </a>
+                    </p>
+                    <p style="color: #666; font-size: 14px;">
+                        This link will expire in 24 hours for security reasons.
+                    </p>
+                    <p style="color: #666; font-size: 14px;">
+                        If you didn't request this link, you can safely ignore this email.
+                    </p>
+                    <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;">
+                    <p style="color: #999; font-size: 12px;">
+                        HolidyHours - Making holiday hours simple<br>
+                        Questions? Reply to this email or contact support@holidyhours.com
+                    </p>
+                </div>
+            </body>
+            </html>
+            """
+            msg.attach(MIMEText(html, 'html'))
+
+            with smtplib.SMTP(self.smtp_host, self.smtp_port) as server:
+                server.starttls()
+                server.login(self.smtp_user, self.smtp_password)
+                server.send_message(msg)
+        except Exception as e:
+            print(f"Failed to send magic link email via SMTP: {str(e)}")
+            raise
+
+    def send_payment_receipt(self, to_email: str, business_name: str, amount: float, reference: str, page_url: str):
+        try:
+            msg = MIMEMultipart()
+            msg['From'] = self.from_email
+            msg['To'] = to_email
+            msg['Subject'] = "Payment Confirmed - Your Holiday Hours Page is Live!"
+
+            html = f"""
+            <html>
+            <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+                <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+                    <h1 style="color: #2563eb;">HolidyHours</h1>
+                    <h2>Payment Confirmed!</h2>
+                    <p>Hello,</p>
+                    <p>Thank you for your payment. Your holiday hours page for <strong>{business_name}</strong> is now live!</p>
+
+                    <div style="background-color: #f3f4f6; padding: 20px; border-radius: 6px; margin: 20px 0;">
+                        <h3 style="margin-top: 0;">Payment Details</h3>
+                        <p style="margin: 5px 0;"><strong>Amount:</strong> ${amount:.2f}</p>
+                        <p style="margin: 5px 0;"><strong>Reference:</strong> {reference}</p>
+                        <p style="margin: 5px 0;"><strong>Date:</strong> {datetime.now().strftime('%B %d, %Y')}</p>
+                    </div>
+
+                    <p style="margin: 30px 0;">
+                        <a href="{page_url}"
+                           style="background-color: #2563eb; color: white; padding: 12px 24px;
+                                  text-decoration: none; border-radius: 6px; display: inline-block;">
+                            View Your Page
+                        </a>
+                    </p>
+
+                    <p>You can edit your page anytime using the magic link we'll send to your email.</p>
+
+                    <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;">
+                    <p style="color: #999; font-size: 12px;">
+                        HolidyHours - Making holiday hours simple<br>
+                        Questions? Reply to this email or contact support@holidyhours.com
+                    </p>
+                </div>
+            </body>
+            </html>
+            """
+            msg.attach(MIMEText(html, 'html'))
+
+            with smtplib.SMTP(self.smtp_host, self.smtp_port) as server:
+                server.starttls()
+                server.login(self.smtp_user, self.smtp_password)
+                server.send_message(msg)
+        except Exception as e:
+            print(f"Failed to send receipt email via SMTP: {str(e)}")
+            raise
+
+# email_service = EmailService()
+# To use SMTP service, uncomment the line below and comment the line above
+email_service = SMTPEmailService()

@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from "@/components/ui/card";
 import {
   Clock,
   Share2,
@@ -14,7 +14,7 @@ import {
   Zap,
   CheckCircle,
   DollarSign,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function Home() {
   return (
@@ -38,12 +38,13 @@ export default function Home() {
       <section className="container mx-auto px-4 py-20 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-            Beautiful holiday hours pages for small businesses{' '}
+            Beautiful holiday hours pages for small businesses{" "}
             <span className="text-blue-600">in minutes</span>
           </h1>
           <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
             Stop answering the same questions. Create a stunning, shareable page
-            that shows your holiday hours at a glance. One price, no subscription.
+            that shows your holiday hours at a glance. One price, no
+            subscription.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/create">
@@ -115,14 +116,14 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {[
-              'Custom holiday hours for any day',
-              'Pre-loaded major holidays',
-              'Regular business hours display',
-              'Share via link, Facebook, Twitter',
-              'Download as image or PDF',
-              'Easy editing with magic link',
-              'View analytics and traffic sources',
-              'Mobile-responsive design',
+              "Custom holiday hours for any day",
+              "Pre-loaded major holidays",
+              "Regular business hours display",
+              "Share via link, Facebook, Twitter",
+              "Download as image or PDF",
+              "Easy editing with magic link",
+              "View analytics and traffic sources",
+              "Mobile-responsive design",
             ].map((feature, index) => (
               <div key={index} className="flex items-start space-x-3">
                 <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" />
@@ -158,11 +159,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                  Basic analytics dashboard
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                  7-day money-back guarantee
+                  Analytics dashboard
                 </li>
               </ul>
               <Link href="/create">
@@ -196,20 +193,18 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
             <div className="mb-4 md:mb-0">
-              <span className="font-semibold text-white">HolidyHours</span> ©{' '}
+              <span className="font-semibold text-white">HolidyHours</span> ©{" "}
               {new Date().getFullYear()} • Making holiday hours simple
             </div>
             <div className="flex space-x-6">
               <Link
                 href="/privacy"
-                className="hover:text-white transition-colors"
-              >
+                className="hover:text-white transition-colors">
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="hover:text-white transition-colors"
-              >
+                className="hover:text-white transition-colors">
                 Terms of Service
               </Link>
             </div>
