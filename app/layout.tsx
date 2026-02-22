@@ -1,29 +1,32 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { Toaster } from 'sonner';
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'HolidyHours - Beautiful Holiday Hours Pages for Small Businesses',
-  description: 'Create stunning, shareable holiday hours pages in minutes. Perfect for local retailers, restaurants, and service businesses. One-time $9 seasonal payment.',
+  title: "HolidyHours - Beautiful Holiday Hours Pages for Small Businesses",
+  description:
+    "Create stunning, shareable holiday hours pages in minutes. Perfect for local retailers, restaurants, and service businesses. One-time $9 seasonal payment.",
   openGraph: {
-    title: 'HolidyHours - Holiday Hours Made Simple',
-    description: 'Create beautiful holiday hours pages for your business in minutes',
+    title: "HolidyHours - Holiday Hours Made Simple",
+    description:
+      "Create beautiful holiday hours pages for your business in minutes",
     images: [
       {
-        url: 'https://bolt.new/static/og_default.png',
+        url: "project\app\image\holiday-hour.png.png",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'HolidyHours - Holiday Hours Made Simple',
-    description: 'Create beautiful holiday hours pages for your business in minutes',
+    card: "summary_large_image",
+    title: "HolidyHours - Holiday Hours Made Simple",
+    description:
+      "Create beautiful holiday hours pages for your business in minutes",
     images: [
       {
-        url: 'https://bolt.new/static/og_default.png',
+        url: "project\app\image\holiday-hour.png.png",
       },
     ],
   },
