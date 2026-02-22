@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
 
 export const metadata: Metadata = {
   title: "HolidyHours - Beautiful Holiday Hours Pages for Small Businesses",
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
       "Create beautiful holiday hours pages for your business in minutes",
     images: [
       {
-        url: "./image/holiday-hour.png",
+        url: `${baseUrl}/images/holiday-hour.png`,
+        alt: "Holiday Hours Preview",
       },
     ],
   },
@@ -26,7 +28,8 @@ export const metadata: Metadata = {
       "Create beautiful holiday hours pages for your business in minutes",
     images: [
       {
-        url: "./image/holiday-hour.png",
+        url: `${baseUrl}/images/holiday-hour.png`,
+        alt: "Holiday Hours Preview",
       },
     ],
   },
