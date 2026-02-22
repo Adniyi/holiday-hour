@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       "Create beautiful holiday hours pages for your business in minutes",
     images: [
       {
-        url: "./image/holiday-hour.png.png",
+        url: "./image/holiday-hour.png",
       },
     ],
   },
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
       "Create beautiful holiday hours pages for your business in minutes",
     images: [
       {
-        url: "project\app\image\holiday-hour.png.png",
+        url: "./image/holiday-hour.png",
       },
     ],
   },
