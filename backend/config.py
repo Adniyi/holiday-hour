@@ -1,5 +1,5 @@
 import os
-from typing import List
+from typing import List, Optional
 
 from dotenv import load_dotenv
 from pydantic_settings import BaseSettings
@@ -36,8 +36,8 @@ class Settings(BaseSettings):
 
     smtp_host:str = "smtp.gmail.com"
     smtp_port:int = 465
-    smtp_user:str
-    smtp_password:str 
+    smtp_user:Optional[str] = None
+    smtp_password:Optional[str] = None
 
 
     @property

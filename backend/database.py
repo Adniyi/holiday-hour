@@ -5,7 +5,7 @@ from config import settings
 
 
 
-engine = create_engine(settings.database_url)
+engine = create_engine(settings.database_url,connect_args={"client_encoding": "utf8"})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
