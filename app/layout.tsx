@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   title: "HolidyHours - Beautiful Holiday Hours Pages for Small Businesses",
   description:
     "Create stunning, shareable holiday hours pages in minutes. Perfect for local retailers, restaurants, and service businesses. One-time $9 seasonal payment.",
+  verification: {
+      google: "d_GvgqFqxv2N_Z3TO1d-lTbADJNuQoZKqWFMMdj5JnQ", // 👈 Paste your code here
+    },
   openGraph: {
     title: "HolidyHours - Holiday Hours Made Simple",
     description:
       "Create beautiful holiday hours pages for your business in minutes",
-    verification: {
-      google: "d_GvgqFqxv2N_Z3TO1d-lTbADJNuQoZKqWFMMdj5JnQ", // 👈 Paste your code here
-    },
     images: [
       {
         url: `${baseUrl}/images/holiday-hour.png`,
