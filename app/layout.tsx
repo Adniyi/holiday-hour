@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     title: "HolidyHours - Holiday Hours Made Simple",
     description:
       "Create beautiful holiday hours pages for your business in minutes",
+    verification: {
+      google: "d_GvgqFqxv2N_Z3TO1d-lTbADJNuQoZKqWFMMdj5JnQ", // 👈 Paste your code here
+    },
     images: [
       {
         url: `${baseUrl}/images/holiday-hour.png`,
